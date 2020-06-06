@@ -12,6 +12,7 @@
         <module>member</module>
         <module>cloud</module>
         <module>order</module>
+        <module>baseApi</module>
     </modules>
 
     <parent>
@@ -34,29 +35,42 @@
     </dependencyManagement>
     <dependencies>
         <!--整合Eureka 进cloud   开始 -->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-autoconfigure</artifactId>-->
-<!--            <version>2.0.1.RELEASE</version>-->
-<!--        </dependency>-->
-        <!--整合Eureka 进cloud   结束 -->
-
-
-        <!--整合Zookeeper 进cloud    开始 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zookeeper-discovery</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
-        <!--整合Zookeeper 进cloud    结束 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>2.0.1.RELEASE</version>
+        </dependency>
 
+
+        <!-- SpringBoot整合Web组件 -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-web</artifactId>-->
+        <!--        </dependency>-->
+        <!--        &lt;!&ndash;        检测服务存活状态  调用其他服务必须要加这个&ndash;&gt;-->
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-actuator</artifactId>
+                </dependency>
+        <!--整合Zookeeper 进cloud    开始 -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-zookeeper-discovery</artifactId>-->
+        <!--        </dependency>-->
+        <!--整合consul 进cloud    开始-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-consul-discovery</artifactId>-->
+        <!--        </dependency>-->
+        <!--整合feign客户端 实现本地负载均衡 并且远程调用-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
 
 
     </dependencies>
@@ -71,7 +85,6 @@
             </snapshots>
         </repository>
     </repositories>
-
 
 
 </project>
